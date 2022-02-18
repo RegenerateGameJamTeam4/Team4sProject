@@ -2,6 +2,7 @@
 *.os
 .import/
 import/
+build/
 *.import
 *.dblite
 *.exp
