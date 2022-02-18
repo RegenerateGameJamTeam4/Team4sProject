@@ -15,7 +15,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-global="*res://src/utility/global.gd"
+Global="*res://src/utility/global.gd"
+Events="*res://src/utility/events.gd"
 
 [physics]
 
