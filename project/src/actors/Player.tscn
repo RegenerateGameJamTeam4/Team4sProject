@@ -11,6 +11,7 @@ radius = 0.05
 height = 0.1
 
 [node name="Player" type="Area"]
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -18,12 +19,7 @@ shape = SubResource( 1 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
 light_color = Color( 0.764706, 0.796078, 0.619608, 1 )
-
-[node name="SpotLight" type="SpotLight" parent="."]
-visible = false
-light_color = Color( 0.764706, 0.796078, 0.619608, 1 )
-light_energy = 2.0
-spot_range = 15.0
+omni_range = 2.0
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
