@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/materials/ground_material_customshader.tres" type="Shader" id=1]
+[ext_resource path="res://src/GroundPlane.gd" type="Script" id=2]
+[ext_resource path="res://assets/textures/basetexture_001_b.png" type="Texture" id=3]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 10, 10 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/color = Color( 0.141176, 0.32549, 0.239216, 1 )
+shader_param/uv_scroll = null
+shader_param/clamp_values = Vector2( 0, 1 )
+shader_param/noise_texture = ExtResource( 3 )
+
+[node name="GroundPlane" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.50995 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+script = ExtResource( 2 )
+scroll_speed = Vector3( 0, -1, 0 )
