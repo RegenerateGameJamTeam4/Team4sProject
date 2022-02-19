@@ -9,6 +9,7 @@ onready var player = $Player
 
 func _ready():
 	pass
+	Global.game = self
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta):

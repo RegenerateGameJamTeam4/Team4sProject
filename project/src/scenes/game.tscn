@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/environments/base_moody_forest.tres" type="Environment" id=1]
 [ext_resource path="res://src/GroundPlane.tscn" type="PackedScene" id=2]
@@ -9,8 +9,40 @@
 [ext_resource path="res://src/Plants/big_tree_003.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/KillArea.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Plants/square_shrub_001.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/sprites/backgroundsilhouette_001_a.png" type="Texture" id=10]
+[ext_resource path="res://src/Spawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/ui/sugars_bar.gd" type="Script" id=12]
+[ext_resource path="res://src/ui/community_bar.gd" type="Script" id=13]
+[ext_resource path="res://src/ui/nutrients_bar.gd" type="Script" id=14]
+[ext_resource path="res://assets/particles/circle_05.png" type="Texture" id=15]
+
+[sub_resource type="QuadMesh" id=4]
+size = Vector2( 9, 2.58 )
+
+[sub_resource type="SpatialMaterial" id=5]
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+albedo_texture = ExtResource( 10 )
 
 [sub_resource type="Theme" id=1]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.815686, 0.811765, 0.388235, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.568627, 0.486275, 0.239216, 0.501961 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.3936, 0.82, 0.493093, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.2394, 0.57, 0.31103, 0.501961 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.62812, 0.3936, 0.82, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.5149, 0.2394, 0.57, 0.501961 )
 
 [sub_resource type="SphereMesh" id=2]
 radius = 0.025
@@ -19,6 +51,35 @@ height = 0.05
 [sub_resource type="SpatialMaterial" id=3]
 flags_unshaded = true
 albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0, 0 ), 0.0, 5.01459, 0, 0, Vector2( 0.5, 0.848864 ), -0.0976076, -0.0976076, 0, 0, Vector2( 1, 0 ), -4.36591, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+emission_shape = 2
+emission_box_extents = Vector3( 3, 3, 3 )
+gravity = Vector3( 0, -0.1, 0 )
+initial_velocity = 0.5
+scale = 0.05
+scale_random = 0.48
+scale_curve = SubResource( 13 )
+
+[sub_resource type="SpatialMaterial" id=15]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.313726, 0.505882, 0.368627, 1 )
+albedo_texture = ExtResource( 15 )
+
+[sub_resource type="QuadMesh" id=16]
+material = SubResource( 15 )
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 4 )
@@ -135,7 +196,28 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00055, 0, -3.7577 )
 [node name="SquareShrub004" parent="Plants" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.704504, 0.0364864, -4.45441 )
 
+[node name="BG" type="Node" parent="."]
+
+[node name="BGTrees" type="MeshInstance" parent="BG"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03769, -5.38578 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 5 )
+
+[node name="BGTrees3" type="MeshInstance" parent="BG"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.23176, 1.03769, -3.5346 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 5 )
+
+[node name="BGTrees2" type="MeshInstance" parent="BG"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.78148, 1.12627, -4.59216 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 5 )
+
 [node name="KillArea" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.90519 )
 
 [node name="UI" type="Control" parent="."]
 margin_right = 40.0
@@ -155,46 +237,100 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SugarsLabel" type="Label" parent="UI/VBoxContainer"]
-margin_right = 80.0
-margin_bottom = 14.0
+[node name="SugarsBar" type="ProgressBar" parent="UI/VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 256, 24 )
+rect_pivot_offset = Vector2( -486, 179 )
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
+value = 25.0
+percent_visible = false
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SugarsLabel" type="Label" parent="UI/VBoxContainer/SugarsBar"]
+margin_left = 4.0
+margin_top = 6.0
+margin_right = 260.0
+margin_bottom = 20.0
 text = "Sugars: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CarbonLabel" type="Label" parent="UI/VBoxContainer"]
-margin_top = 18.0
-margin_right = 80.0
-margin_bottom = 32.0
-text = "Carbon: 0"
+[node name="NutrientsBar" type="ProgressBar" parent="UI/VBoxContainer"]
+margin_top = 28.0
+margin_right = 256.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 256, 24 )
+rect_pivot_offset = Vector2( -486, 179 )
+custom_styles/fg = SubResource( 8 )
+custom_styles/bg = SubResource( 9 )
+value = 25.0
+percent_visible = false
+script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SunlightLabel" type="Label" parent="UI/VBoxContainer"]
-margin_top = 36.0
-margin_right = 80.0
-margin_bottom = 50.0
-text = "Sunlight: 0"
+[node name="CarbonLabel" type="Label" parent="UI/VBoxContainer/NutrientsBar"]
+margin_left = 3.0
+margin_top = 6.0
+margin_right = 93.0
+margin_bottom = 20.0
+text = "Nutrients: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NitrogenLabel" type="Label" parent="UI/VBoxContainer"]
-margin_top = 54.0
-margin_right = 80.0
-margin_bottom = 68.0
-text = "Nitrogen: 0"
+[node name="CommunityBar" type="ProgressBar" parent="UI/VBoxContainer"]
+margin_top = 56.0
+margin_right = 256.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 256, 24 )
+rect_pivot_offset = Vector2( -486, 179 )
+custom_styles/fg = SubResource( 10 )
+custom_styles/bg = SubResource( 11 )
+value = 25.0
+percent_visible = false
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SunlightLabel" type="Label" parent="UI/VBoxContainer/CommunityBar"]
+margin_left = 3.0
+margin_top = 5.0
+margin_right = 259.0
+margin_bottom = 19.0
+text = "Community: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="target_cursor" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.540455, 0.401178, -0.900092 )
+visible = false
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Spawner" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -8.99 )
+
+[node name="Spawner2" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -8.99 )
+
+[node name="Atmosphere particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925083, -2.05585 )
+amount = 50
+lifetime = 3.0
+visibility_aabb = AABB( -2.70171, -1.09541, -1.47837, 5.40342, 2.19082, 2.95673 )
+process_material = SubResource( 14 )
+draw_pass_1 = SubResource( 16 )
 
 [editable path="Player"]
