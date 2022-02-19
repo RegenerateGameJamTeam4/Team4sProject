@@ -12,3 +12,5 @@ func manager() -> GameManager:
 	
 	return _game_manager;
 	
+#game variables
+var speed = 0.5;
