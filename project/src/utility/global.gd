@@ -11,6 +11,9 @@ func manager() -> GameManager:
 			_game_manager = managers[0];
 	
 	return _game_manager;
-	
+
+#references
+var game = null
+
 #game variables
 var speed = 0.5;
