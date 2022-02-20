@@ -40,8 +40,7 @@ func _ready():
 	reset_game()
 	Events.connect("plant_collected", self, "_on_plant_collected")
 	Events.connect("restart_btn_pressed", self, "_on_restart_btn_pressed")
-	$DrainTimer.wait_time = drain_delay
-	$DrainTimer.start()
+
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func reset_game():
@@ -134,3 +133,9 @@ func _on_DrainTimer_timeout():
 	drain_delay = drain_delay * 0.8
 	self.generations+=1
 	drain_resources()
+
+
+func _on_StartTimer_timeout():
+	$HUD.visible=true
+	$DrainTimer.wait_time = drain_delay
+	$DrainTimer.start()

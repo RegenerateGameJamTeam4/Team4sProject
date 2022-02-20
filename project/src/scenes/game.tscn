@@ -243,6 +243,7 @@ material/0 = SubResource( 23 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.90519 )
 
 [node name="HUD" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 21 )
@@ -365,10 +366,15 @@ material/0 = SubResource( 3 )
 [node name="DrainTimer" type="Timer" parent="."]
 
 [node name="Spawner" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -8.99 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -7.19324 )
 
 [node name="Spawner2" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -8.99 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -7.19324 )
+
+[node name="DecorationSpawner" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.41678 )
+wait_range = Vector2( 0.2, 0.5 )
+spawn_range = Vector2( -0.8, 0.8 )
 
 [node name="Atmosphere particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875038, -2.05585 )
@@ -377,10 +383,6 @@ lifetime = 3.0
 visibility_aabb = AABB( -2.70171, -1.09541, -1.47837, 5.40342, 2.19082, 2.95673 )
 process_material = SubResource( 14 )
 draw_pass_1 = ExtResource( 15 )
-
-[node name="DecorationSpawner" parent="." instance=ExtResource( 7 )]
-wait_range = Vector2( 0.2, 0.5 )
-spawn_range = Vector2( -0.8, 0.8 )
 
 [node name="FinalScore" parent="." instance=ExtResource( 9 )]
 pause_mode = 2
@@ -399,7 +401,13 @@ volume_db = 12.0
 pitch_scale = 0.7
 bus = "Sfx"
 
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="DrainTimer" to="." method="_on_DrainTimer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
 
 [editable path="Player"]
 [editable path="BG/ScrollBGGrass"]

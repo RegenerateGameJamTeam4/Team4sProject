@@ -45,6 +45,7 @@ func _on_Player_area_entered(area):
 	if area.is_in_group("obstacle"):
 		if area.has_method("handle_collision"):
 			area.call("handle_collision")
+			Events.emit_signal("hit_rock")
 		
 		
 		
