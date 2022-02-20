@@ -6,6 +6,9 @@ var assetlist = [preload("res://src/Plants/big_tree_001.tscn"),
 				preload("res://src/Plants/flat_shrub_001.tscn"),
 				preload("res://src/Plants/square_shrub_001.tscn"),
 				preload("res://src/Plants/small_plant_001.tscn"),
+				preload("res://src/Plants/small_plant_002.tscn"),
+				preload("res://src/obstacles/small_rock_001.tscn"),
+				preload("res://src/obstacles/small_rock_002.tscn"),
 				]
 
 export var wait_range:Vector2
