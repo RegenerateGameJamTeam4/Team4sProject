@@ -14,6 +14,10 @@ var first:bool = true
 
 # References to objects
 # to come...
+onready var _musicplayer = $Music
+onready var _ambientplayer = $Ambience
+onready var _environment = $WorldEnvironment
+
 
 func _ready():
 	match (debug_start_scene):
@@ -53,11 +57,11 @@ func add_scene(scene, unique_id: String) -> bool:
 # scenes will be unloaded before this one is loaded. The scene can either be a path
 # to the resource or a PackedScene. Returns true on success, false otherwise.
 func load_scene(scene, unique_id: String, additive = false) -> bool:
-	#if first==true:
-		#_transition.visible=false
-	#else:
-		#_transition.get_node("AnimationPlayer").play("fade")
-		#yield(_transition.get_node("AnimationPlayer"), "animation_finished")
+	if first==true:
+		$Transition.visible=false
+	else:
+		$Transition.get_node("AnimationPlayer").play("fade")
+		yield($Transition.get_node("AnimationPlayer"), "animation_finished")
 
 	var to_load : PackedScene;
 	
@@ -86,7 +90,7 @@ func load_scene(scene, unique_id: String, additive = false) -> bool:
 	#if not first==true:
 	if not first==true:
 		yield(get_tree().create_timer(1.0), "timeout")
-		#_transition.get_node("AnimationPlayer").play_backwards("fade")
+		$Transition.get_node("AnimationPlayer").play_backwards("fade")
 	#yield(transition.get_node("AnimationPlayer"), "animation_finished")
 	
 	first=false
