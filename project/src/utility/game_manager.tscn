@@ -62,7 +62,7 @@ tracks/1/keys = {
 
 [node name="GameManager" type="Node"]
 script = ExtResource( 1 )
-debug_start_scene = "RegenSplash"
+debug_start_scene = "Game"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 2 )

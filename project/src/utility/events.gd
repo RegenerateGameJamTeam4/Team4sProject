@@ -2,6 +2,7 @@
 extends Node
 
 signal plant_collected
+signal hit_rock
 
 signal sugars_updated
 signal nutrients_updated

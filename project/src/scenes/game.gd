@@ -39,6 +39,7 @@ func _ready():
 	_manager._environment.environment = environment
 	reset_game()
 	Events.connect("plant_collected", self, "_on_plant_collected")
+	Events.connect("hit_rock", self, "_on_hit_rock")
 	Events.connect("restart_btn_pressed", self, "_on_restart_btn_pressed")
 
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -134,6 +135,10 @@ func _on_DrainTimer_timeout():
 	self.generations+=1
 	drain_resources()
 
+func _on_hit_rock():
+	self.sugars = sugars - rand_range(0,2)
+	self.nutrients = nutrients - rand_range(0,2)
+	self.community = community - rand_range(0,2)
 
 func _on_StartTimer_timeout():
 	$HUD.visible=true
