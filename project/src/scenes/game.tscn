@@ -334,7 +334,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CarbonLabel" type="Label" parent="HUD/VBoxContainer/NutrientsBar"]
+[node name="NutrientsLabel" type="Label" parent="HUD/VBoxContainer/NutrientsBar"]
 margin_left = 3.0
 margin_top = 6.0
 margin_right = 93.0
@@ -359,7 +359,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SunlightLabel" type="Label" parent="HUD/VBoxContainer/CommunityBar"]
+[node name="CommunityLabel" type="Label" parent="HUD/VBoxContainer/CommunityBar"]
 margin_left = 3.0
 margin_top = 5.0
 margin_right = 259.0

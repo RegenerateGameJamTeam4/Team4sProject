@@ -22,10 +22,13 @@ export var sugar_decay_rate = 1.25
 export var nutrients_decay_rate = 1.25
 export var community_decay_rate = 1.25
 
+var drain_delay:float = 1
+
 func _ready():
 	Global.game = self
 	reset_game()
 	Events.connect("plant_collected", self, "_on_plant_collected")
+	$DrainTimer.wait_time = drain_delay
 	$DrainTimer.start()
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -94,4 +97,5 @@ func _physics_process(delta):
 
 
 func _on_DrainTimer_timeout():
+	drain_delay = drain_delay * 0.95
 	drain_resources()
