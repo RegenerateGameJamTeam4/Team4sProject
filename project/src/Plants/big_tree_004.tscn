@@ -10,11 +10,14 @@ size = Vector2( 2.1, 2.7 )
 [sub_resource type="SpatialMaterial" id=2]
 resource_local_to_scene = true
 flags_transparent = true
+params_depth_draw_mode = 1
 params_billboard_mode = 2
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.1
 albedo_texture = ExtResource( 1 )
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 0.450448, 0.497218, 0.116848 )
+extents = Vector3( 0.274107, 0.497218, 0.116848 )
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -67,15 +70,13 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0.756863, 0.823529, 0.172549, 1 ), Color( 0, 0, 0, 1 ) ]
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.627451, 0.392157, 0.819608, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [node name="BigTree_004" type="Area" groups=["plant"]]
 collision_layer = 2
 script = ExtResource( 2 )
-sugar_value = 2.0
-nutrient_value = 2.0
-community_value = 1.0
+community_value = 5.0
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30822, 0 )

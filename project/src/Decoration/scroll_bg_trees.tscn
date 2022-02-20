@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/materials/ground_material_customshader.tres" type="Shader" id=1]
+[ext_resource path="res://assets/sprites/backgroundsilhouette_001_a.png" type="Texture" id=2]
+
+[sub_resource type="QuadMesh" id=4]
+size = Vector2( 10, 2.58 )
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = ExtResource( 1 )
+shader_param/color = Color( 0, 0, 0, 1 )
+shader_param/uv_scroll = Vector2( 0.05, 0 )
+shader_param/uv_offset = null
+shader_param/clamp_values = Vector2( 0, 0 )
+shader_param/noise_texture = ExtResource( 2 )
+
+[node name="ScrollBGTrees" type="MeshInstance"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.8807, 1.12627, -2.7154 )
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 5 )
