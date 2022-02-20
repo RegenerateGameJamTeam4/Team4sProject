@@ -10,6 +10,8 @@ uniform vec2 uv_scroll;
 uniform vec2 uv_offset;
 uniform vec2 clamp_values;
 
+uniform bool toggle_colorization;
+
 void vertex()
 {
 	
@@ -18,12 +20,22 @@ void vertex()
 void fragment()
 {
 	vec2 uv = UV + uv_offset + (uv_scroll*TIME);
+	float alpha;
+	if (toggle_colorization==true)
+	{
 	float col = smoothstep(clamp_values.x,clamp_values.y,texture(noise_texture,uv).r);
-	float alpha = texture(noise_texture,uv).a;
+	alpha = texture(noise_texture,uv).a;
 	//float col2 = smoothstep(0.15,0.2, texture(noise_texture,uv+0.5).r);
 	//float final = clamp(0.0,1.0,col * col2);
 	//EMISSION = vec3(final,final,final);
 	//EMISSION = vec3(col,col,col)*color.rgb;
 	ALBEDO = vec3(col,col,col)*color.rgb;
+	}
+	else
+	{
+		vec4 tex = texture(noise_texture,uv);
+		ALBEDO = tex.rgb;
+		alpha = tex.a;
+	}
 	ALPHA = alpha;
 }"

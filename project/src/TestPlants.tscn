@@ -1,0 +1,201 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Plants/square_shrub_001.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Plants/flat_shrub_001.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Plants/big_tree_001.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Plants/big_tree_003.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Plants/plant.gd" type="Script" id=5]
+
+[node name="Plants" type="Node"]
+
+[node name="SquareShrub005" type="Area" parent="." groups=["plant"] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17468, 0.0364864, -1.98519 )
+collision_layer = 2
+script = ExtResource( 5 )
+nutrient_value = 2.0
+
+[node name="SquareShrub006" type="Area" parent="." groups=["plant"] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.659821, 0.0364864, -3.22783 )
+collision_layer = 2
+script = ExtResource( 5 )
+nutrient_value = 2.0
+
+[node name="SquareShrub007" type="Area" parent="." groups=["plant"] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51087, 0.0364864, -3.22783 )
+collision_layer = 2
+script = ExtResource( 5 )
+nutrient_value = 2.0
+
+[node name="SquareShrub008" type="Area" parent="." groups=["plant"] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30609, 0.0364864, -3.91036 )
+collision_layer = 2
+script = ExtResource( 5 )
+nutrient_value = 2.0
+
+[node name="SquareShrub009" type="Area" parent="." groups=["plant"] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26923, 0.0364864, -4.53201 )
+collision_layer = 2
+script = ExtResource( 5 )
+nutrient_value = 2.0
+
+[node name="SquareShrub010" type="Area" parent="." groups=["plant"] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.363483, 0.0364864, -6.3082 )
+collision_layer = 2
+script = ExtResource( 5 )
+nutrient_value = 2.0
+
+[node name="SquareShrub011" type="Area" parent="." groups=["plant"] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.631321, 0.0364864, -1.81633 )
+collision_layer = 2
+script = ExtResource( 5 )
+nutrient_value = 2.0
+
+[node name="BigTree_001" type="Area" parent="." groups=["plant"] instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.694211, 0, -1.28641 )
+collision_layer = 2
+script = ExtResource( 5 )
+community_value = 3.0
+
+[node name="BigTree_002" type="Area" parent="." groups=["plant"] instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15967, 0, -3.41453 )
+collision_layer = 2
+script = ExtResource( 5 )
+community_value = 3.0
+
+[node name="BigTree_003" type="Area" parent="." groups=["plant"] instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51965, 0, -4.24262 )
+collision_layer = 2
+script = ExtResource( 5 )
+community_value = 3.0
+
+[node name="BigTree_004" type="Area" parent="." groups=["plant"] instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03422, 0, -4.28932 )
+collision_layer = 2
+script = ExtResource( 5 )
+community_value = 3.0
+
+[node name="BigTree_008" type="Area" parent="." groups=["plant"] instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54053, 0, -5.91598 )
+collision_layer = 2
+script = ExtResource( 5 )
+community_value = 3.0
+
+[node name="BigTree_009" type="Area" parent="." groups=["plant"] instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12936, 0, -5.91598 )
+collision_layer = 2
+script = ExtResource( 5 )
+community_value = 3.0
+
+[node name="BigTree_010" type="Area" parent="." groups=["plant"] instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.12936, 0, -7.77902 )
+collision_layer = 2
+script = ExtResource( 5 )
+community_value = 3.0
+
+[node name="SquareShrub001" type="Area" parent="." groups=["plant"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.456938, 0.0245462, -0.999433 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 2.0
+
+[node name="SquareShrub012" type="Area" parent="." groups=["plant"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.848242, 0.0245462, -1.47211 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 2.0
+
+[node name="SquareShrub013" type="Area" parent="." groups=["plant"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.772994, 0.0245462, -1.93219 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 2.0
+
+[node name="SquareShrub014" type="Area" parent="." groups=["plant"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.936739, 0.0245462, -2.26264 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 2.0
+
+[node name="SquareShrub015" type="Area" parent="." groups=["plant"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.228529, 0.0245462, -4.73568 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 2.0
+
+[node name="SquareShrub003" type="Area" parent="." groups=["plant"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.210778, 0.0177866, -3.26069 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 2.0
+
+[node name="SquareShrub002" type="Area" parent="." groups=["plant"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.670515, 0.0323685, -3.02824 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 2.0
+
+[node name="SquareShrub016" type="Area" parent="." groups=["plant"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39158, 0.0323685, -3.02824 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 2.0
+
+[node name="SquareShrub017" type="Area" parent="." groups=["plant"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4522, 0.0323685, -3.02824 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 2.0
+
+[node name="SquareShrub018" type="Area" parent="." groups=["plant"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89599, 0.0323685, -3.86261 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 2.0
+
+[node name="BigTree_005" type="Area" parent="." groups=["plant"] instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.626478, 0, -2.25935 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 5.0
+
+[node name="BigTree_006" type="Area" parent="." groups=["plant"] instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.984702, 0, -4.9403 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 5.0
+
+[node name="BigTree_007" type="Area" parent="." groups=["plant"] instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.563636, 0, -6.94261 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 5.0
+
+[node name="BigTree_011" type="Area" parent="." groups=["plant"] instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.69224, 0, -6.94261 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 5.0
+
+[node name="BigTree_012" type="Area" parent="." groups=["plant"] instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00405, 0, -6.94261 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 5.0
+
+[node name="BigTree_013" type="Area" parent="." groups=["plant"] instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00405, 0, -3.7577 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 5.0
+
+[node name="BigTree_014" type="Area" parent="." groups=["plant"] instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00055, 0, -3.7577 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 5.0
+
+[node name="SquareShrub004" type="Area" parent="." groups=["plant"] instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.704504, 0.0364864, -4.45441 )
+collision_layer = 2
+script = ExtResource( 5 )
+sugar_value = 2.0

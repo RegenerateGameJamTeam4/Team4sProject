@@ -69,7 +69,8 @@ shape = SubResource( 1 )
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0517617, 0 )
 light_color = Color( 0.764706, 0.796078, 0.619608, 1 )
-omni_range = 2.0
+omni_range = 1.5
+omni_attenuation = 2.0
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )

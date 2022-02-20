@@ -8,6 +8,9 @@ func _ready():
 	get_surface_material(0).set_shader_param("uv_scroll", Vector2(0,-(Global.speed/10.0)))
 
 func _process(delta):
-	pass
+	if get_tree().paused:
+		get_surface_material(0).set_shader_param("uv_scroll", Vector2(0,0))
+	else:
+		get_surface_material(0).set_shader_param("uv_scroll", Vector2(0,-(Global.speed/10.0)))
 	#get_surface_material(0).uv1_offset.y += -(Global.speed/10.0) * delta
 	

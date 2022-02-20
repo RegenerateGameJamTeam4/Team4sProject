@@ -1,12 +1,13 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=2]
 
-[ext_resource path="res://assets/textures/basetexture_001_b.png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/basetexture_002_b.png" type="Texture" id=1]
 [ext_resource path="res://assets/materials/ground_material_customshader.tres" type="Shader" id=2]
 
 [resource]
 shader = ExtResource( 2 )
-shader_param/color = Color( 0.156863, 0.486275, 0.345098, 1 )
+shader_param/color = Color( 1, 1, 1, 1 )
 shader_param/uv_scroll = null
-shader_param/uv_offset = null
+shader_param/uv_offset = Vector2( 0, -0.923 )
 shader_param/clamp_values = Vector2( 0, 1 )
+shader_param/toggle_colorization = null
 shader_param/noise_texture = ExtResource( 1 )

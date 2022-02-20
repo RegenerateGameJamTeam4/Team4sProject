@@ -20,7 +20,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="RegenerateJamGame"
+config/name="Hypha"
+config/description="Mycelium is the vegetative part of a fungus, consisting of many different hypha, a fine white filament. In Hypha grow your mycelium network by making sure you've got enough sugar, nutrients and community to keep going as long as you can."
 run/main_scene="res://src/utility/game_manager.tscn"
 config/icon="res://icon.png"
 
@@ -28,6 +29,10 @@ config/icon="res://icon.png"
 
 Global="*res://src/utility/global.gd"
 Events="*res://src/utility/events.gd"
+
+[display]
+
+window/stretch/aspect="keep"
 
 [layer_names]
 
