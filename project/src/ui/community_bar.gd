@@ -5,3 +5,4 @@ func _ready():
 	
 func _on_community_updated(new_value):
 	value = new_value
+	$CommunityLabel.text = "Community: " + str(new_value)

@@ -5,3 +5,4 @@ func _ready():
 	
 func _on_nutrients_updated(new_value):
 	value = new_value
+	$NutrientsLabel.text = "Nutrients: " + str(new_value)
