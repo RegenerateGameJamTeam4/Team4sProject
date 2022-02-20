@@ -1,9 +1,7 @@
 extends ProgressBar
 
 func _ready():
-	Events.connect("plant_collected", self, "_on_plant_collected")
+	Events.connect("nutrients_updated", self, "_on_nutrients_updated")
 	
-func _on_plant_collected(plant):
-	plant = plant as Plant
-	if plant.nutrient_value>0:
-		value+=plant.nutrient_value
+func _on_nutrients_updated(new_value):
+	value = new_value
