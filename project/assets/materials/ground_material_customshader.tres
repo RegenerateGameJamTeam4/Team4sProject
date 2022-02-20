@@ -2,10 +2,12 @@
 
 [resource]
 code = "shader_type spatial;
+render_mode cull_disabled, depth_draw_alpha_prepass;
 
 uniform vec4 color : hint_color;
 uniform sampler2D noise_texture;
 uniform vec2 uv_scroll;
+uniform vec2 uv_offset;
 uniform vec2 clamp_values;
 
 void vertex()
@@ -15,11 +17,13 @@ void vertex()
 
 void fragment()
 {
-	vec2 uv = UV + (uv_scroll*TIME);
+	vec2 uv = UV + uv_offset + (uv_scroll*TIME);
 	float col = smoothstep(clamp_values.x,clamp_values.y,texture(noise_texture,uv).r);
+	float alpha = texture(noise_texture,uv).a;
 	//float col2 = smoothstep(0.15,0.2, texture(noise_texture,uv+0.5).r);
 	//float final = clamp(0.0,1.0,col * col2);
 	//EMISSION = vec3(final,final,final);
 	//EMISSION = vec3(col,col,col)*color.rgb;
 	ALBEDO = vec3(col,col,col)*color.rgb;
+	ALPHA = alpha;
 }"

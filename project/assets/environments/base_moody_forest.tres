@@ -3,10 +3,17 @@
 [resource]
 background_mode = 1
 background_color = Color( 0.109804, 0.176471, 0.160784, 1 )
-ambient_light_color = Color( 0.235294, 0.364706, 0.313726, 1 )
+ambient_light_color = Color( 0.0823529, 0.164706, 0.133333, 1 )
 fog_enabled = true
 fog_color = Color( 0.109804, 0.176471, 0.160784, 1 )
 fog_depth_begin = 2.0
 fog_depth_end = 8.0
 fog_depth_curve = 0.5
+fog_transmit_enabled = true
+fog_height_enabled = true
+fog_height_min = 2.0
+fog_height_max = -1.0
+fog_height_curve = 1.6245
+tonemap_mode = 4
+tonemap_exposure = 2.0
 glow_enabled = true
