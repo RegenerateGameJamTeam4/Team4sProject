@@ -17,44 +17,78 @@ const MAX_COMMUNITY = 100
 var sugars:int setget set_sugars
 var nutrients:int setget set_nutrients
 var community:int setget set_community
+var generations:int setget set_generations
 
-export var sugar_decay_rate = 1.25
-export var nutrients_decay_rate = 1.25
-export var community_decay_rate = 1.25
+
+export var environment:Environment
+export var sugar_decay_rate = 1.2
+export var nutrients_decay_rate = 1.2
+export var community_decay_rate = 1.2
+
+export var decay_multipler = 1
 
 var drain_delay:float = 1
 
+onready var _manager = Global.manager()
+
+var in_game = false
+var game_ended=false
+
 func _ready():
 	Global.game = self
+	_manager._environment.environment = environment
 	reset_game()
 	Events.connect("plant_collected", self, "_on_plant_collected")
+	Events.connect("restart_btn_pressed", self, "_on_restart_btn_pressed")
 	$DrainTimer.wait_time = drain_delay
 	$DrainTimer.start()
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func reset_game():
+	get_tree().paused=false
+	$FinalScore.visible=false
 	self.sugars = 100
 	self.nutrients = 100
 	self.community = 100
+	self.generations = 0
 
 func set_sugars(newval):
 	sugars = newval
 	if sugars>=MAX_SUGARS : sugars = MAX_SUGARS
 	if sugars<=0: sugars = 0
+	if sugars == 0:
+		gameover()
 	Events.emit_signal("sugars_updated", sugars)
 
 func set_nutrients(newval):
 	nutrients = newval
 	if nutrients>=MAX_NUTRIENTS : nutrients = MAX_NUTRIENTS
 	if nutrients<=0: nutrients = 0
+	if nutrients == 0:
+		gameover()
 	Events.emit_signal("nutrients_updated", nutrients)
 
 func set_community(newval):
 	community = newval
 	if community>=MAX_COMMUNITY : nutrients = MAX_COMMUNITY
 	if community<=0: community = 0
+	if community == 0:
+		gameover()
 	Events.emit_signal("community_updated", community)
+	
+func set_generations(newval):
+	generations = newval
+	Events.emit_signal("generations_updated", generations)
 
+func gameover():
+	if game_ended==false:
+		get_tree().paused=true
+		game_ended==true
+		$FinalScore/GameOverSound.play()
+		$FinalScore.visible = true
+
+func _on_restart_btn_pressed():
+	_manager.load_scene(_manager.game_path, "game")
 
 func _on_plant_collected(plant):
 	plant = plant as Plant
@@ -66,9 +100,9 @@ func _on_plant_collected(plant):
 		self.community += plant.community_value
 
 func drain_resources():
-	self.sugars -= sugar_decay_rate
-	self.nutrients -= nutrients_decay_rate
-	self.community -= community_decay_rate
+	self.sugars -= sugar_decay_rate * decay_multipler
+	self.nutrients -= nutrients_decay_rate * decay_multipler
+	self.community -= community_decay_rate * decay_multipler
 
 func _physics_process(delta):
 	
@@ -97,5 +131,6 @@ func _physics_process(delta):
 
 
 func _on_DrainTimer_timeout():
-	drain_delay = drain_delay * 0.95
+	drain_delay = drain_delay * 0.8
+	self.generations+=1
 	drain_resources()
