@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/materials/ground_material_customshader.tres" type="Shader" id=1]
-[ext_resource path="res://assets/sprites/backgroundsilhouette_002_b.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/backgroundsilhouette_002_a.png" type="Texture" id=2]
 [ext_resource path="res://src/bg_scroll_element.gd" type="Script" id=3]
 
 [sub_resource type="QuadMesh" id=4]
-size = Vector2( 10, 0.9 )
+size = Vector2( 10, 2.58 )
 
 [sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
@@ -18,13 +18,13 @@ shader_param/toggle_colorization = true
 shader_param/toggle_tex_alpha = true
 shader_param/noise_texture = ExtResource( 2 )
 
-[node name="ScrollBGGrass" type="Spatial"]
+[node name="ScrollBGTrees_002" type="Spatial"]
 script = ExtResource( 3 )
 scroll_direction = Vector2( 1, 0 )
-mesh_size = Vector2( 10, 0.9 )
+mesh_size = Vector2( 10, 2.58 )
 
 [node name="Mesh" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.146812, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.091, 0 )
 mesh = SubResource( 4 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 5 )
