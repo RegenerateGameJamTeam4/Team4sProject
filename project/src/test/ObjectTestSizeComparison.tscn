@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/obstacles/small_rock_002.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Plants/flat_shrub_001.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Plants/square_shrub_001.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Plants/big_tree_001.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Plants/big_tree_003.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Plants/big_tree_004.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Plants/small_plant_002.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/obstacles/small_rock_001.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Plants/small_plant_001.tscn" type="PackedScene" id=9]
+
+[node name="ObjectTestSizeComparison" type="Spatial"]
+
+[node name="BigTree_001" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65029, 0, 0 )
+
+[node name="BigTree_003" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.83788, 0, 0 )
+
+[node name="BigTree_004" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.20173, 0, 0 )
+
+[node name="SmallPlant_001" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04602, 0, 0 )
+
+[node name="SmallPlant_002" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.582656, 0, 0 )
+
+[node name="SquareShrub002" parent="." instance=ExtResource( 3 )]
+
+[node name="FlatShrub001" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.530271, 0.0364864, 0 )
+
+[node name="SmallRock_001" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1188, 0, 0 )
+
+[node name="SmallRock_002" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65958, 0, 0 )
