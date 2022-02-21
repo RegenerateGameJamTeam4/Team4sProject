@@ -34,7 +34,7 @@ func _physics_process(delta):
 		transform.origin.y = 0;
 	if global_transform.origin.x<=movement_range.x : global_transform.origin.x=movement_range.x
 	if global_transform.origin.x>=movement_range.y : global_transform.origin.x=movement_range.y
-	print (global_transform.origin.x)
+	#print (global_transform.origin.x)
 
 
 func _on_Player_area_entered(area):
