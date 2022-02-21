@@ -87,9 +87,9 @@ func load_scene(scene, unique_id: String, additive = false) -> bool:
 	
 	scenes_holder.add_child(new_scene, true)
 	print("Memory: " + str(OS.get_static_memory_peak_usage()))
-	#if not first==true:
-	if not first==true:
-		yield(get_tree().create_timer(1.0), "timeout")
+	
+	if first==false:
+		yield(get_tree().create_timer(1.1), "timeout")
 		$Transition.get_node("AnimationPlayer").play_backwards("fade")
 	#yield(transition.get_node("AnimationPlayer"), "animation_finished")
 	
