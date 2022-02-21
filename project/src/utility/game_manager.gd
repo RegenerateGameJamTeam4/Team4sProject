@@ -5,6 +5,8 @@ var splash_path = "res://src/scenes/regen_splash.tscn"
 var menu_path = "res://src/scenes/main_menu.tscn"
 var game_path = "res://src/scenes/game.tscn"
 
+export var transitions_enabled = false
+
 # Scene loader variables
 var scenes_holder : Node;
 var loaded_scenes_map = {}
@@ -57,11 +59,13 @@ func add_scene(scene, unique_id: String) -> bool:
 # scenes will be unloaded before this one is loaded. The scene can either be a path
 # to the resource or a PackedScene. Returns true on success, false otherwise.
 func load_scene(scene, unique_id: String, additive = false) -> bool:
-	if first==true:
-		$Transition.visible=false
-	else:
-		$Transition.get_node("AnimationPlayer").play("fade")
-		yield($Transition.get_node("AnimationPlayer"), "animation_finished")
+	
+	if transitions_enabled:
+		if first==true:
+			$Transition.visible=false
+		else:
+			$Transition.get_node("AnimationPlayer").play("fade")
+			yield($Transition.get_node("AnimationPlayer"), "animation_finished")
 
 	var to_load : PackedScene;
 	
@@ -88,10 +92,11 @@ func load_scene(scene, unique_id: String, additive = false) -> bool:
 	scenes_holder.add_child(new_scene, true)
 	print("Memory: " + str(OS.get_static_memory_peak_usage()))
 	
-	if first==false:
-		yield(get_tree().create_timer(1.1), "timeout")
-		$Transition.get_node("AnimationPlayer").play_backwards("fade")
-	#yield(transition.get_node("AnimationPlayer"), "animation_finished")
+	if transitions_enabled:
+		if first==false:
+			yield(get_tree().create_timer(1.1), "timeout")
+			$Transition.get_node("AnimationPlayer").play_backwards("fade")
+		#yield(transition.get_node("AnimationPlayer"), "animation_finished")
 	
 	first=false
 	
