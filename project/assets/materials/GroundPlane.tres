@@ -7,7 +7,8 @@
 shader = ExtResource( 2 )
 shader_param/color = Color( 1, 1, 1, 1 )
 shader_param/uv_scroll = null
-shader_param/uv_offset = Vector2( 0, -0.923 )
+shader_param/uv_offset = Vector2( 0, 0 )
 shader_param/clamp_values = Vector2( 0, 1 )
-shader_param/toggle_colorization = null
+shader_param/toggle_colorization = false
+shader_param/toggle_tex_alpha = null
 shader_param/noise_texture = ExtResource( 1 )

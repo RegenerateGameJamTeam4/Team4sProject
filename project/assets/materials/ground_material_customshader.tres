@@ -11,6 +11,7 @@ uniform vec2 uv_offset;
 uniform vec2 clamp_values;
 
 uniform bool toggle_colorization;
+uniform bool toggle_tex_alpha;
 
 void vertex()
 {
@@ -35,7 +36,12 @@ void fragment()
 	{
 		vec4 tex = texture(noise_texture,uv);
 		ALBEDO = tex.rgb;
-		alpha = tex.a;
+		if (toggle_tex_alpha==true) {
+			alpha = tex.a;
+		}
+		else {
+			alpha = 1.0f;
+		}
 	}
 	ALPHA = alpha;
 }"
