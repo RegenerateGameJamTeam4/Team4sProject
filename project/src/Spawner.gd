@@ -21,7 +21,7 @@ func _ready():
 func spawn(random=true):
 	var pick = randi()%assetlist.size()
 	var new_asset = assetlist[pick].instance()
-	new_asset.transform.origin = Vector3(rand_range(spawn_range.x,spawn_range.y), 0, rand_range(-0.5,0.5))
+	new_asset.transform.origin = Vector3(rand_range(spawn_range.x,spawn_range.y), 0, 0)
 	add_child(new_asset)
 
 
